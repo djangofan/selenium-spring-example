@@ -1,4 +1,4 @@
-package qa.example;
+package qa.example.scenarios;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;

@@ -1,19 +1,19 @@
-package qa.example.tests;
-import qa.example.UserStory;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
+package com.codesolid.tutorials.tests;
+import qa.example.scenarios.UserStory;
+import org.junit.Test;
+import org.junit.Before;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
-import static org.testng.Assert.*;
+import static org.junit.Assert.*;
 
 /* Here we run one of the same tests we run in ContextTests, but we separate it out here to demonstrate
  *  we can do it with a POJU (Plain Old JUnit :) test runner.
  */
-public class TestNGManualContext{
+public class JUnitContextTests {
 
     ApplicationContext ac;
 
-    @BeforeClass
+    @Before
     public void setUp()
     {
         ac = new FileSystemXmlApplicationContext("file:src/main/resources/spring-config.xml");

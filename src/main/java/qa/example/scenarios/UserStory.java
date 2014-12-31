@@ -1,4 +1,4 @@
-package qa.example;
+package qa.example.scenarios;
 
 /**
  * Class UserStory

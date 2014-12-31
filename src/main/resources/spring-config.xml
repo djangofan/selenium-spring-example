@@ -4,13 +4,13 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
     <context:annotation-config />
-    <context:component-scan base-package="qa.example"/>
+    <context:component-scan base-package="com.codesolid"/>
 
     <!-- Our dependencies -->
-    <bean id="userStory" name="userStory" class="qa.example.UserStory">
+    <bean id="userStory" name="userStory" class="qa.example.scenarios.UserStory">
         <property name="user" ref="aSuperGeniusUser" />
     </bean>
-    <bean id="aSuperGeniusUser" name="user" class="qa.example.User">
+    <bean id="aSuperGeniusUser" name="user" class="qa.example.scenarios.User">
         <property name="role" value="SuperGenius User" />
     </bean>
 
