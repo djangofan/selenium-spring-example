@@ -1,6 +1,6 @@
-package com.codesolid.tutorials.tests;
+package qa.example.tests;
 
-import qa.example.scenarios.HelloService;
+import qa.example.test.HelloService;
 import junit.framework.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;

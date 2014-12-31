@@ -1,4 +1,4 @@
-package com.codesolid.tutorials.tests;
+package qa.example.tests;
 
 import static org.junit.Assert.*;
 import org.junit.Test;
@@ -7,8 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.context.ApplicationContext;
-import qa.example.scenarios.UserStory;
-import qa.example.scenarios.User;
+import qa.example.test.BDDUserStory;
+import qa.example.test.User;
 
 import static org.junit.Assert.assertEquals;
 
@@ -22,21 +22,21 @@ public class ContextTests {
 
     // Using ApplicationContext
     // The getBean method is the workhorse of the Spring ApplicationContext.
-    // The user field in the UserStory object was set up (dependency injected)
+    // The user field in the BDDUserStory object was set up (dependency injected)
     // by Spring:
     @Test
     public void testUserNotNull() {
-        UserStory story = (UserStory) ac.getBean("userStory");
+        BDDUserStory story = (BDDUserStory) ac.getBean("userStory");
         assertNotNull(story.getUser());
     }
 
     // Not using ApplicationContext
     // Regular non-Spring instantiation
-    // Instantiating our own UserStory, you can see that the user
+    // Instantiating our own BDDUserStory, you can see that the user
     // is null.
     @Test
     public void testUserStoryNotFromContext() {
-        UserStory story = new UserStory();
+        BDDUserStory story = new BDDUserStory();
         assertNull(story.getUser());
     }
 
@@ -58,7 +58,7 @@ public class ContextTests {
     // is Wile E. Coyote.)
     @Test
     public void testUserRoleIsAsExpected() {
-        UserStory story = (UserStory) ac.getBean("userStory");
+        BDDUserStory story = (BDDUserStory) ac.getBean("userStory");
         assertEquals(story.getUser().getRole(), "SuperGenius User");
     }
 }

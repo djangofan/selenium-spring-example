@@ -1,4 +1,4 @@
-package qa.example.scenarios;
+package qa.example.test;
 
 /**
  * Class User

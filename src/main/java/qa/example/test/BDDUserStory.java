@@ -1,17 +1,17 @@
-package qa.example.scenarios;
+package qa.example.test;
 
 /**
- * Class UserStory
+ * Class BDDUserStory
  * Description: An example bean that models a user story.
  * Uses the standard story form:
  *      "As a ______" (user role), "I want to ______" (actionDesired)
  *      "so that _____" (outcomeDesired).
  */
-public class UserStory {
+public class BDDUserStory {
     private User user;
     private String actionDesired = "";
     private String outcomeDesired = "";
-    public UserStory() {
+    public BDDUserStory() {
     }
 
     public User getUser() {

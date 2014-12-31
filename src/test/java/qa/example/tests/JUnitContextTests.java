@@ -1,5 +1,5 @@
-package com.codesolid.tutorials.tests;
-import qa.example.scenarios.UserStory;
+package qa.example.tests;
+import qa.example.test.BDDUserStory;
 import org.junit.Test;
 import org.junit.Before;
 import org.springframework.context.ApplicationContext;
@@ -22,18 +22,18 @@ public class JUnitContextTests {
     @Test
     public void testUserCorrectFromPlainOldJUnitTest() {
 
-        UserStory story = (UserStory) ac.getBean("userStory");
+        BDDUserStory story = (BDDUserStory) ac.getBean("userStory");
         // Spring is working fine using this app context
         assertEquals(story.getUser().getRole(), "SuperGenius User");
 
         // In this case our User is not wired up
-        UserStory story2 = new UserStory();
+        BDDUserStory story2 = new BDDUserStory();
         assertNull(story2.getUser());
     }
 
     @Test
     public void testPrewiredUserCorrect() {
-        UserStory story = (UserStory) ac.getBean("userStory");
+        BDDUserStory story = (BDDUserStory) ac.getBean("userStory");
         assertEquals(story.getUser().getRole(), "SuperGenius User");
     }
 }

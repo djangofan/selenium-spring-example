@@ -7,10 +7,15 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.rules.TestName;
+import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -22,19 +27,23 @@ import java.net.URL;
  * <p/>
  * The test also includes the {@link SauceOnDemandTestWatcher}...
  */
-public abstract class SauceTestBase implements SauceOnDemandSessionIdProvider
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration("classpath:spring-config.xml")
+public abstract class JUnitSauceTestBase implements SauceOnDemandSessionIdProvider
 {
-    public String sauceLabAccount = "austenjt";
-    public String sauceLabAccessKey = "bde85696-2a40-486b-98de-38ff7e13d6fc";
     protected WebDriver driver;
     protected String sessionId;
     public String browser;
     public String os;
     public String version;
 
+    @Autowired
+    protected ApplicationContext ac;
+
     /**
-     * Constructs a {@link SauceOnDemandAuthentication} instance using the supplied user name/access key.  To use the authentication
-     * supplied by environment variables or from an external file, use the no-arg {@link SauceOnDemandAuthentication} constructor.
+     * Constructs a {@link SauceOnDemandAuthentication} instance using the supplied user name/access key.  To use the
+     * authentication supplied by environment variables or from an external .sauce-ondemand properties file, use the
+     * no-arg {@link SauceOnDemandAuthentication} constructor.
      */
     @Rule
     public SauceOnDemandAuthentication authentication = new SauceOnDemandAuthentication();
@@ -48,7 +57,7 @@ public abstract class SauceTestBase implements SauceOnDemandSessionIdProvider
     @Rule
     public TestName testName = new TestName();
 
-    public SauceTestBase(String os, String version, String browser)
+    public JUnitSauceTestBase(String os, String version, String browser)
     {
         this.os = os;
         this.version = version;

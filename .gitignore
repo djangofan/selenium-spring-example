@@ -27,6 +27,7 @@ $RECYCLE.BIN/
 
 # Icon must ends with two \r.
 Icon
+*.iml
 
 
 # Thumbnails
