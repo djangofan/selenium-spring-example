@@ -10,8 +10,6 @@ import org.springframework.context.ApplicationContext;
 import qa.example.test.BDDUserStory;
 import qa.example.test.User;
 
-import static org.junit.Assert.assertEquals;
-
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("file:src/main/resources/spring-config.xml")
 public class ContextTests {

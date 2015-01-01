@@ -1,7 +1,9 @@
 package qa.example.tests;
 
+import static org.junit.Assert.*;
+
+import static org.junit.Assert.*;
 import qa.example.test.HelloService;
-import junit.framework.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +18,6 @@ public class SpringAppTests {
 
     @Test
     public void testSayHello() {
-        Assert.assertEquals("Hello world!", helloService.sayHello());
+        assertEquals("Hello world!", helloService.sayHello());
     }
 }
